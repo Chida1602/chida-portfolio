@@ -1,81 +1,84 @@
-<section class="projects">
+<section class="projects" id="projects">
 
-  <h2>Projects</h2>
+  <h2 class="section-title">Projects</h2>
+  <div class="section-divider"></div>
+  <p class="section-subtitle">Production-ready work and personal engineering — impact-driven</p>
 
-  <!-- Project 1 -->
-  <div class="project-card">
-    <h3>Fitpro Inc – Diet Planner Website</h3>
-    <p>
-      Developed a diet planner web application using Angular for
-      managing nutrition plans and tracking user dietary habits.
-    </p>
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let p of projects">
+      <div class="project-top">
+        <div class="project-icon-wrap" [style.background]="p.color + '14'">
+          <i [class]="p.icon" [style.color]="p.color"></i>
+        </div>
+        <div class="project-top-right">
+          <span class="project-badge" [style.color]="p.color" [style.background]="p.color + '12'">{{ p.badge }}</span>
+          <a [href]="p.github" target="_blank" class="github-btn" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
 
-    <p><strong>Tech:</strong> Angular, TypeScript, HTML, CSS</p>
+      <h3>{{ p.title }}</h3>
+      <p class="project-summary">{{ p.summary }}</p>
 
-    <a href="https://github.com/Chida1602/Angular-fitpro-project" target="_blank">
-      View GitHub
-    </a>
+      <div class="impact-list">
+        <div class="impact-item" *ngFor="let im of p.impact">
+          <i class="fas fa-chart-line"></i> {{ im }}
+        </div>
+      </div>
+
+      <div class="tech-tags">
+        <span class="tag" *ngFor="let t of p.tech">{{ t }}</span>
+      </div>
+
+      <a [href]="p.github" target="_blank" class="view-link">
+        View on GitHub <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
 
-  <!-- Project 2 -->
-  <div class="project-card">
-    <h3>Heart Disease Prediction</h3>
-    <p>
-      Machine learning model to predict heart disease using
-      logistic regression and medical dataset analysis.
-    </p>
-
-    <p><strong>Tech:</strong> Python, Data Analysis, Machine Learning</p>
-
-    <a href="https://github.com/Chida1602/Heart-Disease-Prediction-using-Logistic-Regression" target="_blank">
-      View GitHub
-    </a>
+  <!-- Certifications -->
+  <div class="subsection">
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Professional learning & credentials</p>
+    <div class="cert-grid">
+      <div class="cert-card" *ngFor="let c of certifications">
+        <div class="cert-icon"><i [class]="c.icon"></i></div>
+        <div class="cert-info">
+          <span class="cert-name">{{ c.name }}</span>
+          <span class="cert-issuer">{{ c.issuer }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Project 3 -->
-  <div class="project-card">
-    <h3>Driver Drowsiness Detection (CNN)</h3>
-    <p>
-      A smart driver alertness detection system using Convolutional
-      Neural Networks that identifies yawning and eye closure.
-    </p>
-
-    <p><strong>Tech:</strong> OpenCV, CNN, Python</p>
-
-    <a href="https://github.com/Chida1602/Chauffeur-Torpidity-Forewarning-Aid-using-CNN" target="_blank">
-      View GitHub
-    </a>
-  </div>
-
-
-  <hr>
-
-
-  <h2>Certifications</h2>
-
-  <ul>
-    <li>Google Cloud Fundamentals – Core Infrastructure</li>
-    <li>Java 17 Masterclass</li>
-    <li>Building Microservices with Quarkus</li>
-    <li>Data Processing Specialist – English Comprehension</li>
-  </ul>
-
-
-  <hr>
-
-
-  <h2>Publications</h2>
-
-  <div class="project-card">
-    <h3>CNN and Facial Features Based Smart Driver Alertness Detection</h3>
-
-    <p>
-      Research publication on using convolutional neural networks
-      to detect driver drowsiness using facial features and
-      real-time monitoring.
-    </p>
-
-    <a href="#" target="_blank">View Publication</a>
+  <!-- Publications -->
+  <div class="subsection">
+    <h2 class="section-title">Publication</h2>
+    <div class="section-divider"></div>
+    <div class="publication-card">
+      <div class="pub-header">
+        <div class="pub-badge"><i class="fas fa-file-alt"></i> Research Paper</div>
+        <span class="pub-year">2023</span>
+      </div>
+      <h3>CNN and Facial Features Based Smart Driver Alertness Detection</h3>
+      <p>
+        Research on using convolutional neural networks for real-time driver drowsiness detection
+        via yawning and eye-closure analysis. Achieved 93%+ accuracy on test dataset with
+        real-time OpenCV video stream processing.
+      </p>
+      <div class="tech-tags">
+        <span class="tag">CNN</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Python</span>
+        <span class="tag">TensorFlow</span>
+      </div>
+      <a href="https://github.com/Chida1602/Chauffeur-Torpidity-Forewarning-Aid-using-CNN" target="_blank" class="view-link">
+        View Repository <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
 
 </section>

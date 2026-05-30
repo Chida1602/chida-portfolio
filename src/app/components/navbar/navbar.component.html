@@ -1,10 +1,26 @@
-<nav class="navbar">
-  <h2>Chidanand</h2>
+<nav class="navbar" [class.scrolled]="scrolled">
+  <a class="logo" href="#">&lt;Chidanand /&gt;</a>
 
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <ul class="nav-links" [class.open]="menuOpen">
+    <li><a href="#about"      (click)="closeMenu()">About</a></li>
+    <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+    <li><a href="#skills"     (click)="closeMenu()">Skills</a></li>
+    <li><a href="#projects"   (click)="closeMenu()">Projects</a></li>
+    <li><a href="#contact"    (click)="closeMenu()">Contact</a></li>
+    <li>
+      <a href="assets/resume.pdf" download="Chidanand_Resume.pdf" class="btn-resume" (click)="closeMenu()">
+        <i class="fas fa-file-pdf"></i> Resume
+      </a>
+    </li>
+    <li><a href="mailto:maasandramchidanand@gmail.com" class="btn-hire" (click)="closeMenu()">Hire Me</a></li>
   </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" (click)="toggleTheme()" [title]="darkMode ? 'Switch to Light' : 'Switch to Dark'">
+      <i class="fas" [class.fa-moon]="!darkMode" [class.fa-sun]="darkMode"></i>
+    </button>
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>

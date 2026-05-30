@@ -1,20 +1,47 @@
-<section class="skills">
-  <h2>Technical Skills</h2>
+<section class="skills" id="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="section-divider"></div>
+  <p class="section-subtitle">Expertise across the Angular ecosystem and modern frontend stack</p>
 
-  <ul>
-    <li>Angular</li>
-    <li>TypeScript</li>
-    <li>JavaScript</li>
-    <li>Quarkus</li>
-    <li>Oracle Database</li>
-    <li>JDBC</li>
-    <li>HTML / CSS</li>
-  </ul>
+  <!-- Core Proficiency Bars -->
+  <div class="core-skills">
+    <h3 class="subsection-label">Core Proficiency</h3>
+    <div class="core-grid">
+      <div class="skill-bar-item" *ngFor="let s of coreSkills">
+        <div class="skill-bar-header">
+          <div class="skill-bar-left">
+            <div class="skill-icon-sm"><i [class]="s.icon" [style.color]="s.color"></i></div>
+            <span class="skill-name">{{ s.name }}</span>
+          </div>
+          <span class="skill-pct">{{ s.level }}%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-fill" [style.width.%]="s.level"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <h3>Tools</h3>
-  <ul>
-    <li>Git</li>
-    <li>Docker</li>
-    <li>REST APIs</li>
-  </ul>
+  <!-- Categorized Skills -->
+  <h3 class="subsection-label" style="margin-top: 48px;">Skills by Domain</h3>
+  <div class="categories-grid">
+    <div class="category-card" *ngFor="let cat of categories">
+      <div class="cat-header">
+        <div class="cat-icon" [style.background]="cat.color + '18'">
+          <i [class]="cat.icon" [style.color]="cat.color"></i>
+        </div>
+        <h4>{{ cat.title }}</h4>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag" *ngFor="let skill of cat.skills">{{ skill }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATS Keywords Row -->
+  <div class="keywords-bar">
+    <span class="kw-label"><i class="fas fa-search"></i> ATS Keywords:</span>
+    <span *ngFor="let kw of ['Angular Developer','Frontend Engineer','SPA Development','Reactive Programming','Enterprise Angular','Scalable Architecture','API Integration','Agile Development','Cross-browser Compatibility']"
+          class="kw-tag">{{ kw }}</span>
+  </div>
 </section>
